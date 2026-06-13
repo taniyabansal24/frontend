@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Toaster } from "@/components/ui/Toast";
-import { LoginForm } from "@/components/forms/LoginForm";
+import { LoginForm } from "@/features/auth/components/LoginForm";
 
 export default function LoginPage() {
   return (

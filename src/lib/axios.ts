@@ -1,64 +1,50 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-
-import { useAuthStore } from "@/store/auth-store";
+import { env } from "./env";
 
 export const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
-
+  baseURL: env.apiUrl,
   headers: {
     "Content-Type": "application/json",
   },
-
   withCredentials: true,
+  timeout: 10_000,
 });
 
-// Request Interceptor
 api.interceptors.request.use(
   (config) => {
-    try {
-      // Read token from cookie instead of Zustand/localStorage
-      const token = Cookies.get("token");
+    const token = Cookies.get("token");
 
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-
-      if (process.env.NODE_ENV === "development") {
-        console.log("API Request:", {
-          baseURL: config.baseURL,
-          url: config.url,
-          method: config.method,
-          data: config.data,
-        });
-      }
-
-      return config;
-    } catch (error) {
-      console.error("Request interceptor error:", error);
-
-      return config;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
     }
-  },
 
-  (error) => Promise.reject(error)
+    if (env.isDev) {
+      console.log("→ API Request:", {
+        url: `${config.baseURL}${config.url}`,
+        method: config.method?.toUpperCase(),
+        data: config.data,
+      });
+    }
+
+    return config;
+  },
+  (error) => Promise.reject(error),
 );
 
-// Response Interceptor
 api.interceptors.response.use(
   (response) => response,
 
   (error) => {
     if (error.response?.status === 401) {
-      useAuthStore.getState().logout();
+      // Clear the auth cookie
+      Cookies.remove("token", { path: "/" });
 
-      Cookies.remove("token", {
-        path: "/",
-      });
-
-      window.location.href = "/login";
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("auth:unauthorized"));
+      }
     }
 
     return Promise.reject(error);
-  }
+  },
 );

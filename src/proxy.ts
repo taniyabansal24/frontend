@@ -1,78 +1,38 @@
-// src/proxy.ts
-
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { ROUTES } from "@/constants/routes";
 
-export function proxy(
-  request: NextRequest
-) {
-  const token =
-    request.cookies.get(
-      "token"
-    )?.value;
+const PROTECTED_ROUTES = ["/dashboard"];
 
-  const {
-    pathname,
-  } = request.nextUrl;
+const AUTH_ONLY_ROUTES = [
+  "/login",
+  "/register",
+  "/forgot-password",
+  "/reset-password",
+];
 
-  // Protected routes
-  const protectedRoutes = [
-    "/dashboard",
-  ];
+export function proxy(request: NextRequest) {
+  const token = request.cookies.get("token")?.value;
+  const { pathname } = request.nextUrl;
 
-  // Auth routes
-  const authRoutes = [
-    "/login",
-    "/register",
-    "/forgot-password",
-    "/reset-password",
-  ];
+  const isProtected = PROTECTED_ROUTES.some((route) =>
+    pathname.startsWith(route),
+  );
+  const isAuthOnly = AUTH_ONLY_ROUTES.some((route) =>
+    pathname.startsWith(route),
+  );
 
-  // User not logged in
-  if (
-    protectedRoutes.some(
-      (route) =>
-        pathname.startsWith(
-          route
-        )
-    ) &&
-    !token
-  ) {
-    return NextResponse.redirect(
-      new URL(
-        "/login",
-        request.url
-      )
-    );
+  if (isProtected && !token) {
+    return NextResponse.redirect(new URL(ROUTES.login, request.url));
   }
 
-  // User already logged in
-  if (
-    authRoutes.some(
-      (route) =>
-        pathname.startsWith(
-          route
-        )
-    ) &&
-    token
-  ) {
-    return NextResponse.redirect(
-      new URL(
-        "/dashboard",
-        request.url
-      )
-    );
+  if (isAuthOnly && token) {
+    return NextResponse.redirect(new URL(ROUTES.dashboard, request.url));
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    "/dashboard/:path*",
-    "/login",
-    "/register",
-    "/forgot-password",
-    "/reset-password",
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|public).*)"],
 };

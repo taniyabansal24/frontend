@@ -10,11 +10,11 @@ import Container from "@/components/ui/Container";
 
 import { Toaster } from "@/components/ui/Toast";
 
-import ForgotPasswordForm from "@/components/forms/ForgotPasswordForm";
+import { ForgotPasswordForm } from "@/features/auth/components/ForgotPasswordForm";
 
-import ForgotPasswordHelp from "@/components/forms/ForgotPasswordHelp";
+import ForgotPasswordHelp from "@/features/auth/components/ForgotPasswordHelp";
 
-import EmailSent from "@/components/forms/EmailSent";
+import EmailSent from "@/features/auth/components/EmailSent";
 
 export default function ForgotPasswordPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);

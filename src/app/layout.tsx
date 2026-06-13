@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-
-import QueryProvider from "@/providers/query-provider";
-
-import "./globals.css";
 import { Geist } from "next/font/google";
-import { cn } from "@/lib/utils";
+import { Providers } from "@/providers";
+import "./globals.css";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "ROUGE INST",
-  description: "ROUGE INST Frontend",
+  title: {
+    default: "ROUGE INST",
+    template: "%s | ROUGE INST",
+  },
+  description: "ROUGE INST — Coaching Management Platform",
 };
 
 export default function RootLayout({
@@ -19,9 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
+    <html lang="en" suppressHydrationWarning className={geist.variable}>
       <body>
-        <QueryProvider>{children}</QueryProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
