@@ -1,5 +1,3 @@
-//features/types/authTypes.ts
-
 export interface RegisterTenantPayload {
   tenantName: string;
   tenantSlug: string;

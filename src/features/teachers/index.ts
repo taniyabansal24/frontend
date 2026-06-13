@@ -1,2 +1,1 @@
-// Public API for teachers feature
-export * from './types';
+export * from "./types";

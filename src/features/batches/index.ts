@@ -1,2 +1,1 @@
-// Public API for batches feature
-export * from './types';
+export * from "./types";

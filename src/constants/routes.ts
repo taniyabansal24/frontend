@@ -1,6 +1,3 @@
-// src/constants/routes.ts
-// Centralized route constants — no hardcoded strings scattered across the codebase
-
 export const ROUTES = {
   // Public
   home: "/",
