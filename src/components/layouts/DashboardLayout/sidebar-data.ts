@@ -81,14 +81,6 @@ export const sidebarItems = [
         title: "Create Teacher",
         path: "/dashboard/teachers/create",
       },
-      // {
-      //   title: "Assign Subjects",
-      //   path: "/dashboard/teachers/assign-subjects",
-      // },
-      // {
-      //   title: "Assign Batches",
-      //   path: "/dashboard/teachers/assign-batches",
-      // }
     ],
   },
 

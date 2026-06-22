@@ -12,7 +12,7 @@ import {
 } from "./service";
 import { AUTH_KEYS } from "./query-keys";
 import { useAuthStore } from "@/stores/auth-store";
-import { setAuthCookie, removeAuthCookie } from "@/utils/cookie";
+// import { setAuthCookie, removeAuthCookie } from "@/utils/cookie";
 import { ROUTES } from "@/constants/routes";
 import type { LoginPayload, RegisterTenantPayload } from "../types";
 
@@ -27,7 +27,8 @@ export const useLoginMutation = () => {
 
     onSuccess: (response, variables) => {
       // 1. Persist token in cookie
-      setAuthCookie(response.token, { rememberMe: variables.rememberMe });
+      // setAuthCookie(response.token, { rememberMe: variables.rememberMe });
+      console.log(response);
 
       setAuthenticated(true);
 
@@ -55,7 +56,7 @@ export const useLogoutMutation = () => {
     mutationFn: logoutUser,
 
     onSettled: () => {
-      removeAuthCookie();
+      // removeAuthCookie();
       clear();
       queryClient.clear();
       router.replace(ROUTES.login);
