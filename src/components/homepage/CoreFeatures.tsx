@@ -135,7 +135,7 @@ function FeatureCard({
           </div>
 
           {/* Description */}
-          <div className="mt-8 max-w-[700px]">
+          <div className="mt-8 max-w-175">
             <p className="leading-7 text-[#3D4156]">{feature.description}</p>
           </div>
 
