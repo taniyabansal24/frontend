@@ -6,7 +6,7 @@ import {
   BookOpen,
   FileText,
   Wallet,
-  CheckCircle2
+  CheckCircle2,
 } from "lucide-react";
 
 import { motion } from "framer-motion";
@@ -84,22 +84,14 @@ function FeatureCard({
     <div
       className="sticky"
       style={{
-        top: `${100 + index * 16}px`,
+        top: `${80 + index * 12}px`,
         zIndex: index + 1,
       }}
     >
       <motion.div
-        initial={{
-          opacity: 0,
-          y: 60,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          duration: 0.5,
-        }}
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
         viewport={{ once: true }}
         className="
           bg-white
@@ -113,25 +105,28 @@ function FeatureCard({
           mx-auto
         "
       >
-        <div className="pl-20 pr-10 py-10">
+        <div className="px-6 md:px-10 lg:px-16 py-8 md:py-10">
           {/* Header */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 md:gap-6">
             <div
               className="
-                h-18
-                w-18
+                h-16
+                w-16
+                md:h-18
+                md:w-18
                 rounded-[18px]
                 bg-[#6FA073]
                 flex
                 items-center
                 justify-center
+                shrink-0
               "
             >
-              <Icon size={34} className="text-white" strokeWidth={1.75} />
+              <Icon size={32} className="text-white" strokeWidth={1.75} />
             </div>
 
             <div>
-              <h3 className="text-[24px] font-semibold text-[#303042]">
+              <h3 className="text-xl md:text-[24px] font-semibold text-[#303042]">
                 {feature.title}
               </h3>
 
@@ -140,12 +135,12 @@ function FeatureCard({
           </div>
 
           {/* Description */}
-          <div className="mt-8 max-w-172">
+          <div className="mt-8 max-w-[700px]">
             <p className="leading-7 text-[#3D4156]">{feature.description}</p>
           </div>
 
           {/* Bottom */}
-          <div className="mt-10 flex justify-between items-end">
+          <div className="mt-10 flex flex-col md:flex-row md:justify-between gap-8">
             <div className="space-y-3">
               {feature.points.map((point) => (
                 <div key={point} className="flex items-center gap-3">
@@ -158,23 +153,7 @@ function FeatureCard({
               ))}
             </div>
 
-            {/* <div className="text-right">
-              <div className="text-heading-homepage font-semibold leading-none text-[#303042]">
-                {feature.rating.toFixed(1)}
-              </div>
-
-              <div className="flex justify-end gap-1.5 mt-3">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    size={16}
-                    fill={i < Math.floor(feature.rating) ? "#F5B301" : "none"}
-                    color="#F5B301"
-                  />
-                ))}
-              </div>
-            </div> */}
-            <div className="text-right">
+            <div className="text-left md:text-right">
               <div className="text-heading-homepage font-semibold leading-none text-[#303042]">
                 {feature.stat}
               </div>
@@ -219,13 +198,12 @@ export default function CoreFeatures() {
           </p>
 
           {/* Stack */}
-          <div className="mt-12 w-full max-w-4xl mx-auto">
+          <div className="mt-12 w-full max-w-5xl mx-auto">
             <div
-              className="
-              relative
-              h-[260vh]
-              w-full
-            "
+              className="relative w-full"
+              style={{
+                height: `${features.length * 75}vh`,
+              }}
             >
               {features.map((feature, index) => (
                 <FeatureCard
