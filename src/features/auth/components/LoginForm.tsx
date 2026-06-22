@@ -9,7 +9,7 @@ import {
   LoginSchemaType,
 } from "@/features/auth/schemas/loginSchema";
 
-import { useLoginMutation } from "@/features/auth/api/mutations";
+import { useLoginMutation } from "@/features/auth";
 
 import { FormInput } from "@/components/ui/FormInput";
 import { PasswordInput } from "@/components/ui/PasswordInput";
@@ -38,10 +38,7 @@ export function LoginForm() {
 
   return (
     <FormProvider {...methods}>
-      <form
-        onSubmit={methods.handleSubmit(onSubmit)}
-        className="space-y-5"
-      >
+      <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-5">
         <FormInput
           label="Organization Code"
           type="text"
@@ -86,10 +83,14 @@ export function LoginForm() {
                 strokeWidth="3"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 13l4 4L19 7"
+                />
               </svg>
             </div>
-            <span className="text-sm font-medium text-[#717182] peer-checked:text-black transition-colors">
+            <span className="card-title text-[#717182] peer-checked:text-black transition-colors">
               Remember me
             </span>
           </label>
@@ -98,7 +99,7 @@ export function LoginForm() {
           <button
             type="button"
             onClick={() => router.push("/forgot-password")}
-            className="text-sm font-medium text-[#717182] hover:text-[#6FA073] transition-all"
+            className="card-title text-[#717182] hover:text-[#6FA073] transition-all"
           >
             Forgot Password?
           </button>
@@ -108,7 +109,7 @@ export function LoginForm() {
           type="submit"
           disabled={isPending}
           className="
-            w-full h-14 bg-[#6FA073] rounded-[10px] text-white font-medium text-[18px]
+            w-full h-14 bg-[#6FA073] rounded-[10px] card-title text-white
             hover:bg-[#4A664C] disabled:opacity-70 disabled:cursor-not-allowed transition-all mt-6
           "
         >

@@ -35,17 +35,15 @@ export default function GlobalError({ error, reset }: ErrorPageProps) {
           </svg>
         </div>
 
-        <h1 className="text-2xl font-semibold text-[#101828] mb-2">
-          Something went wrong
-        </h1>
+        <h1 className="heading mb-2">Something went wrong</h1>
 
-        <p className="text-[#667085] text-sm mb-8">
+        <p className="body-text mb-8">
           An unexpected error occurred. Our team has been notified.
         </p>
 
         <button
           onClick={reset}
-          className="px-6 py-3 bg-[#6FA073] text-white rounded-xl font-medium hover:bg-[#5d8a61] transition-all duration-200"
+          className="px-6 py-3 bg-[#6FA073] text-white rounded-xl card-title hover:bg-[#5d8a61] transition-all duration-200"
         >
           Try again
         </button>

@@ -10,7 +10,7 @@ import Container from "@/components/ui/Container";
 
 import { Toaster } from "@/components/ui/Toast";
 
-import { ForgotPasswordForm } from "@/features/auth/components/ForgotPasswordForm";
+import { ForgotPasswordForm } from "@/features/auth";
 
 import ForgotPasswordHelp from "@/features/auth/components/ForgotPasswordHelp";
 

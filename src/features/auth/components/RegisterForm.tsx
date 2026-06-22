@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRegisterMutation } from "@/features/auth/api/mutations";
+import { useRegisterMutation } from "@/features/auth";
 import {
   registerSchema,
   RegisterSchemaType,
@@ -130,7 +130,7 @@ export function RegisterForm() {
           type="submit"
           disabled={isPending}
           aria-disabled={isPending}
-          className="w-full h-14 bg-[#6FA073] rounded-[10px] text-white font-medium text-[18px] hover:bg-[#4A664C] disabled:opacity-70 disabled:cursor-not-allowed transition-all mt-6"
+          className="w-full h-14 bg-[#6FA073] rounded-[10px] card-title text-white hover:bg-[#4A664C] disabled:opacity-70 disabled:cursor-not-allowed transition-all mt-6"
         >
           {isPending ? "Creating Account..." : "Create Account"}
         </button>
@@ -139,7 +139,7 @@ export function RegisterForm() {
           <button
             type="button"
             onClick={() => router.push("/login")}
-            className="text-[#717182] hover:text-[#030213] hover:underline transition-all duration-200 font-inter font-medium text-base"
+            className="card-title text-[#717182] hover:text-[#030213] hover:underline transition-all duration-200"
           >
             ← Already have an account? Back to Login
           </button>

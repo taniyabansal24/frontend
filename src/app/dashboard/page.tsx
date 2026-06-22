@@ -1,9 +1,11 @@
+// src/app/dashboard/page.tsx
 "use client"
 
 import * as React from "react"
-
+import { useCurrentUser } from "@/features/auth/api/queries";
 
 export default function Page() {
+  const { data: user } = useCurrentUser();
   return (
     <div className="space-y-6">
 
@@ -13,7 +15,7 @@ export default function Page() {
         </h1>
 
         <p className="caption mt-1">
-          Welcome back, Sahil 👋
+          Welcome back, {user?.user?.name ?? "Admin"} 👋
         </p>
       </div>
 

@@ -1,3 +1,4 @@
+// src/stores/auth-store.ts
 import { create } from "zustand";
 
 interface AuthClientState {

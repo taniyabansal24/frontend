@@ -1,3 +1,4 @@
+// ROUGE_INST/frontend/src/utils/cookie.ts
 import Cookies from "js-cookie";
 
 const COOKIE_KEY = "token";

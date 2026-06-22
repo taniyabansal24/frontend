@@ -1,9 +1,9 @@
+// src/features/auth/api/service.ts
 import { api } from "@/lib/axios";
 import type {
   LoginPayload,
   RegisterTenantPayload,
   AuthResponse,
-  User,
 } from "../types";
 
 export const loginUser = async (data: LoginPayload): Promise<AuthResponse> => {
@@ -42,7 +42,8 @@ export const resetPassword = async (data: {
   return response.data;
 };
 
-export const getMe = async (): Promise<User> => {
-  const response = await api.get<User>("/auth/me");
-  return response.data;
+export const getMe = async () => {
+  const response = await api.get("/auth/me");
+
+  return response.data.data;
 };

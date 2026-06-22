@@ -12,7 +12,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { BadgeCheckIcon, CreditCardIcon, BellIcon, LogOutIcon, ChevronDown } from "lucide-react";
+import {
+  BadgeCheckIcon,
+  CreditCardIcon,
+  BellIcon,
+  LogOutIcon,
+  ChevronDown,
+} from "lucide-react";
 import { useLogoutMutation } from "@/features/auth";
 
 interface UserProfileDropdownProps {
@@ -24,7 +30,9 @@ interface UserProfileDropdownProps {
   };
 }
 
-export default function UserProfileDropdown({ user }: UserProfileDropdownProps) {
+export default function UserProfileDropdown({
+  user,
+}: UserProfileDropdownProps) {
   const { mutate: handleLogout, isPending } = useLogoutMutation();
 
   return (
@@ -33,12 +41,23 @@ export default function UserProfileDropdown({ user }: UserProfileDropdownProps) 
         <button className="group flex items-center gap-3 py-2 rounded-xl cursor-pointer outline-none hover:bg-[#F9FAFB] transition-all duration-200 data-[state=open]:bg-[#F9FAFB]">
           <Avatar className="w-9 h-9 border-2 border-[#6FA073]">
             <AvatarImage src={user.avatar} alt={user.name} />
-            <AvatarFallback>{user.name?.slice(0, 2)}</AvatarFallback>
+            <AvatarFallback>
+              {user.name?.includes(" ")
+                ? user.name
+                    .split(" ")
+                    .map((word) => word[0])
+                    .slice(0, 2)
+                    .join("")
+                    .toUpperCase()
+                : user.name?.slice(0, 2).toUpperCase()}
+            </AvatarFallback>
           </Avatar>
 
           <div className="hidden lg:block text-left">
             <h4 className="card-title">{user.name}</h4>
-            <p className="caption text-[#667085]">{user.role || "Super Admin"}</p>
+            <p className="caption text-[#667085]">
+              {user.role || "Super Admin"}
+            </p>
           </div>
 
           {/* Arrow container */}
@@ -51,17 +70,26 @@ export default function UserProfileDropdown({ user }: UserProfileDropdownProps) 
         </button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end" className="w-64 rounded-xl">
+      <DropdownMenuContent align="end" className="w-64 rounded-xl p-1">
         <DropdownMenuLabel>
           <div className="flex gap-3 items-center">
             <Avatar className="w-10 h-10">
               <AvatarImage src={user.avatar} />
-              <AvatarFallback>{user.name?.slice(0, 2)}</AvatarFallback>
+              <AvatarFallback>
+                {user.name?.includes(" ")
+                  ? user.name
+                      .split(" ")
+                      .map((word) => word[0])
+                      .slice(0, 2)
+                      .join("")
+                      .toUpperCase()
+                  : user.name?.slice(0, 2).toUpperCase()}
+              </AvatarFallback>
             </Avatar>
 
             <div>
               <h4 className="card-title">{user.name}</h4>
-              <p className="caption">{user.email}</p>
+              <p className="caption text-[#667085]">{user.email}</p>
             </div>
           </div>
         </DropdownMenuLabel>
@@ -71,25 +99,31 @@ export default function UserProfileDropdown({ user }: UserProfileDropdownProps) 
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <BadgeCheckIcon size={16} />
-            Account
+            <span className="card-title">Account</span>
           </DropdownMenuItem>
 
           <DropdownMenuItem>
             <CreditCardIcon size={16} />
-            Billing
+            <span className="card-title">Billing</span>
           </DropdownMenuItem>
 
           <DropdownMenuItem>
             <BellIcon size={16} />
-            Notifications
+            <span className="card-title">Notifications</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem onClick={() => handleLogout()} className="text-red-500">
+        <DropdownMenuItem
+          onClick={() => handleLogout()}
+          className="text-red-500"
+        >
           <LogOutIcon size={16} />
-          {isPending ? "Logging out..." : "Logout"}
+
+          <span className="card-title">
+            {isPending ? "Logging out..." : "Logout"}
+          </span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

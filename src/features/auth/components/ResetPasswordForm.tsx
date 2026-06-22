@@ -9,7 +9,7 @@ import {
   ResetPasswordSchemaType,
 } from "@/features/auth/schemas/resetPasswordSchema";
 
-import { useResetPasswordMutation } from "@/features/auth/api/mutations";
+import { useResetPasswordMutation } from "@/features/auth";
 import { PasswordInput } from "@/components/ui/PasswordInput";
 import { showToast } from "@/components/ui/Toast";
 
@@ -57,8 +57,8 @@ export function ResetPasswordForm() {
 
       {/* Tip */}
       <div className="bg-[#F7F7F8] border border-[#6FA073]/50 rounded-xl p-5">
-        <p className="text-sm text-[#0A0A0A]">
-          <span className="font-bold">Tip:</span> Use a combination of letters,
+        <p className="body-text text-[#0A0A0A]">
+           <span className="card-title text-[#0A0A0A]">Tip:</span> Use a combination of letters,
           numbers, and symbols to create a strong password. Avoid using personal
           information.
         </p>
@@ -68,7 +68,7 @@ export function ResetPasswordForm() {
         type="submit"
         disabled={isPending}
         className="
-          w-full h-14 bg-[#6FA073] rounded-[10px] text-white font-medium text-[18px]
+          w-full h-14 bg-[#6FA073] rounded-[10px] card-title text-white
           hover:bg-[#4A664C] disabled:opacity-70 disabled:cursor-not-allowed transition-all mt-6
         "
       >

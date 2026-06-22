@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Toaster } from "@/components/ui/Toast";
 import { useRouter } from "next/navigation";
 
-import { ResetPasswordForm } from "@/features/auth/components/ResetPasswordForm";
+import { ResetPasswordForm } from "@/features/auth";
 import LockIcon from "@/components/icons/LockIcon";
 
 export default function ResetPasswordPage() {

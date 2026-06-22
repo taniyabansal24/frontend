@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Toaster } from "@/components/ui/Toast";
-import { RegisterForm } from "@/features/auth/components/RegisterForm";
+import { RegisterForm } from "@/features/auth";
 
 export default function RegisterPage() {
   return (

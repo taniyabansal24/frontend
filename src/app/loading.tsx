@@ -7,7 +7,8 @@ export default function GlobalLoading() {
       <div className="flex flex-col items-center gap-4">
         {/* Spinner */}
         <div className="w-10 h-10 rounded-full border-4 border-[#6FA073]/20 border-t-[#6FA073] animate-spin" />
-        <p className="text-sm text-[#667085] font-medium">Loading...</p>
+
+        <p className="body-text">Loading...</p>
       </div>
     </div>
   );

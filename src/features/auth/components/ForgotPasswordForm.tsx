@@ -9,7 +9,7 @@ import {
   ForgotPasswordSchemaType,
 } from "@/features/auth/schemas/forgotPasswordSchema";
 
-import { useForgotPasswordMutation } from "@/features/auth/api/mutations";
+import { useForgotPasswordMutation } from "@/features/auth";
 import { FormInput } from "@/components/ui/FormInput";
 
 interface ForgotPasswordFormProps {
@@ -56,7 +56,7 @@ export function ForgotPasswordForm({ onSuccess }: ForgotPasswordFormProps) {
           {...methods.register("loginId")}
         />
 
-        <p className="text-xs text-[#717182] mt-2">
+        <p className="caption text-[#717182] mt-2">
           We&apos;ll send password reset instructions to your registered email.
         </p>
       </div>
@@ -65,7 +65,7 @@ export function ForgotPasswordForm({ onSuccess }: ForgotPasswordFormProps) {
         type="submit"
         disabled={isPending}
         className="
-          w-full h-14 bg-[#6FA073] rounded-[10px] text-white font-medium text-[18px]
+          w-full h-14 bg-[#6FA073] rounded-[10px] text-white card-title
           hover:bg-[#4A664C] disabled:opacity-70 disabled:cursor-not-allowed transition-all mt-6
         "
       >

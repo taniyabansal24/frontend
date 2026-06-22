@@ -18,7 +18,7 @@ import {
   CreditCard,
   Settings,
 } from "lucide-react";
-import path from "path";
+
 
 export const sidebarItems = [
   {
@@ -54,6 +54,20 @@ export const sidebarItems = [
       }
     ],
   },
+  {
+    title: "Parents",
+    icon: Users,
+    children: [
+      {
+        title: "All Parents",
+        path: "/dashboard/parents/all",
+      },
+      {
+        title: "Create Parent",
+        path: "/dashboard/parents/create",
+      }
+    ],
+  },
 
   {
     title: "Teachers",
@@ -67,14 +81,14 @@ export const sidebarItems = [
         title: "Create Teacher",
         path: "/dashboard/teachers/create",
       },
-      {
-        title: "Assign Subjects",
-        path: "/dashboard/teachers/assign-subjects",
-      },
-      {
-        title: "Assign Batches",
-        path: "/dashboard/teachers/assign-batches",
-      }
+      // {
+      //   title: "Assign Subjects",
+      //   path: "/dashboard/teachers/assign-subjects",
+      // },
+      // {
+      //   title: "Assign Batches",
+      //   path: "/dashboard/teachers/assign-batches",
+      // }
     ],
   },
 
@@ -87,12 +101,16 @@ export const sidebarItems = [
         path: "/dashboard/management-staff/create",
       },
       {
-        title: "Assign Roles",
-        path: "/dashboard/management-staff/assign-roles",
+        title: "All Management Staff",
+        path: "/dashboard/management-staff/all",
       },
       {
-        title: "Assign Departments",
-        path: "/dashboard/management-staff/assign-departments",
+        title: "Roles & Permissions",
+        path: "/dashboard/management-staff/roles",
+      },
+      {
+        title: "Staff Attendance",
+        path: "/dashboard/management-staff/attendance",
       }
     ],
   },
