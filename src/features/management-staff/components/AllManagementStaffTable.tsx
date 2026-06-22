@@ -6,76 +6,54 @@ import StatsCard from "@/components/shared/StatsCard";
 import TableToolbar from "@/components/shared/table/TableToolbar";
 import DataTable from "@/components/shared/table/DataTable";
 
-import {
-  useManagementStaffQuery,
-} from "../api/queries";
+import { useManagementStaffQuery } from "../api/queries";
 
 import {
   useUpdateManagementStaffMutation,
   useDeleteManagementStaffMutation,
 } from "../api/mutations";
 
-import {
-  managementStaffColumns,
-} from "../config/management-staff-columns";
+import { managementStaffColumns } from "../config/management-staff-columns";
 
 export default function AllManagementStaffTable() {
-  const {
-    data: staff = [],
-    isLoading,
-    error,
-  } =
-    useManagementStaffQuery();
+  const { data: staff = [], isLoading, error } = useManagementStaffQuery();
 
-  const {
-    mutate: updateStaff,
-  } =
-    useUpdateManagementStaffMutation();
+  const { mutate: updateStaff } = useUpdateManagementStaffMutation();
 
-  const {
-    mutate: deleteStaff,
-  } =
-    useDeleteManagementStaffMutation();
+  const { mutate: deleteStaff } = useDeleteManagementStaffMutation();
 
-  const handleEdit = (
-    id: string,
-    values: Record<string, string>
-  ) => {
+  const handleEdit = (id: string, values?: Record<string, string>) => {
+    if (!values) return;
+
     updateStaff({
       id,
       data: {
         name: values.name,
         phone: values.phone,
-        department:
-          values.department,
+        department: values.department,
       },
     });
   };
 
-  const handleDelete = (
-    id: string
-  ) => {
+  const handleDelete = (id: string) => {
     deleteStaff(id);
   };
 
-if (isLoading) {
-  return (
-    <div className="py-8 text-center">
-      <p className="body-text">Loading staff...</p>
-    </div>
-  );
-}
+  if (isLoading) {
+    return (
+      <div className="py-8 text-center">
+        <p className="body-text">Loading staff...</p>
+      </div>
+    );
+  }
 
-if (error) {
-  return (
-    <div className="py-8 text-center">
-      <p className="body-text text-red-500">
-        Failed to load staff
-      </p>
-    </div>
-  );
-}
-
+  if (error) {
+    return (
+      <div className="py-8 text-center">
+        <p className="body-text text-red-500">Failed to load staff</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -93,11 +71,7 @@ if (error) {
           subtitle="Currently active"
         />
 
-        <StatsCard
-          title="Departments"
-          value="-"
-          subtitle="Coming soon"
-        />
+        <StatsCard title="Departments" value="-" subtitle="Coming soon" />
 
         <StatsCard
           title="Operations"
@@ -111,9 +85,7 @@ if (error) {
 
       <div className="mt-5">
         <DataTable
-          columns={
-            managementStaffColumns
-          }
+          columns={managementStaffColumns}
           data={staff}
           rowsPerPage={5}
           onEdit={handleEdit}

@@ -22,7 +22,9 @@ export default function AllTeachersTable() {
 
   const { mutate: deleteTeacher } = useDeleteTeacherMutation();
 
-  const handleEdit = (id: string, values: Record<string, string>) => {
+  const handleEdit = (id: string, values?: Record<string, string>) => {
+    if (!values) return;
+
     updateTeacher({
       id,
       data: {
