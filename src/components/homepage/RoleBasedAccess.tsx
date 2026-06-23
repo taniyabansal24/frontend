@@ -39,7 +39,6 @@ const roles = [
     statMessage: "Excellent attendance this month",
     type: "progress",
   },
-
   {
     title: "Teachers",
     description:
@@ -57,7 +56,6 @@ const roles = [
     statMessage: "2 upcoming sessions remaining today",
     type: "number",
   },
-
   {
     title: "Parents",
     description:
@@ -75,7 +73,6 @@ const roles = [
     statMessage: "Strong improvement this term",
     type: "number",
   },
-
   {
     title: "Administrators",
     description:
@@ -111,12 +108,12 @@ export default function RoleBasedAccess() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-heading-homepage text-center max-w-175 font-bold">
+          <h2 className="text-heading-homepage text-center max-w-[700px] font-bold">
             Built for Every Role
           </h2>
 
           {/* Description */}
-          <p className="text-body-homepage text-[#464652] font-light leading-7 text-center mt-6 max-w-125">
+          <p className="text-body-homepage text-[#464652] font-light leading-7 text-center mt-6 max-w-[500px]">
             Personalized dashboards and workflows designed for students,
             teachers, parents, and administrators.
           </p>
@@ -129,51 +126,15 @@ export default function RoleBasedAccess() {
               return (
                 <div
                   key={role.title}
-                  className="
-                    bg-white
-                    rounded-[24px]
-                    border
-                    border-[#E8ECE8]
-                    p-6
-                    min-h-155
-                    shadow-[0_8px_24px_rgba(0,0,0,0.05)]
-                    hover:-translate-y-1
-                    hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]
-                    transition-all
-                    duration-300
-                  "
+                  className="bg-white rounded-[24px] border border-[#E8ECE8] p-6 min-h-[620px] shadow-[0_8px_24px_rgba(0,0,0,0.05)] hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] transition-all duration-300"
                 >
                   {/* Top */}
                   <div className="flex justify-between items-start">
-                    <div
-                      className="
-                        w-14
-                        h-14
-                        rounded-[16px]
-                        bg-[#F1F5F1]
-                        flex
-                        items-center
-                        justify-center
-                      "
-                    >
-                      <Icon
-                        className="w-7 h-7 text-[#8CB38F]"
-                        strokeWidth={1.8}
-                      />
+                    <div className="w-14 h-14 rounded-[16px] bg-[#F1F5F1] flex items-center justify-center">
+                      <Icon className="w-7 h-7 text-[#8CB38F]" strokeWidth={1.8} />
                     </div>
 
-                    <button
-                      className="
-                        w-10
-                        h-10
-                        rounded-full
-                        border
-                        border-[#D9D9D9]
-                        flex
-                        items-center
-                        justify-center
-                      "
-                    >
+                    <button className="w-10 h-10 rounded-full border border-[#D9D9D9] flex items-center justify-center hover:bg-[#6FA073] hover:text-white hover:border-[#6FA073] transition-colors">
                       <ArrowRight size={18} />
                     </button>
                   </div>
@@ -194,12 +155,8 @@ export default function RoleBasedAccess() {
                       const FeatureIcon = feature.icon;
 
                       return (
-                        <div
-                          key={feature.label}
-                          className="flex items-center gap-3"
-                        >
+                        <div key={feature.label} className="flex items-center gap-3">
                           <FeatureIcon size={18} className="text-[#445B49]" />
-
                           <span className="text-caption-homepage text-[#46505A]">
                             {feature.label}
                           </span>
@@ -229,12 +186,12 @@ export default function RoleBasedAccess() {
                           <div className="w-[92%] h-full bg-[#8CB38F] rounded-full" />
                         </div>
 
-                        <p className="mt-3 text-caption-homepage text-[#445B49] max-w-37.5">
+                        <p className="mt-3 text-caption-homepage text-[#445B49] max-w-[150px]">
                           {role.statMessage}
                         </p>
                       </>
                     ) : (
-                      <p className="mt-3 text-caption-homepage text-[#445B49] font-medium max-w-37.5">
+                      <p className="mt-3 text-caption-homepage text-[#445B49] font-medium max-w-[150px]">
                         {role.statMessage}
                       </p>
                     )}

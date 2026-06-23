@@ -15,7 +15,7 @@ export default function Hero() {
             <div className="flex flex-row items-center gap-2">
               <TargetIcon className="text-[#6FA073]" />
               <span className="text-badge-homepage text-[#6FA073]">
-               Comprehensive Solution
+                Comprehensive Solution
               </span>
             </div>
           </div>
@@ -34,58 +34,21 @@ export default function Hero() {
           </p>
 
           {/* Buttons */}
-<div className="mt-10 flex flex-wrap justify-center gap-4">
-  <button
-    className="
-      text-body-homepage
-      font-medium
-      h-12
-      px-10
-      rounded-full
-      bg-[#6FA073]
-      text-white
-      shadow-md
-      cursor-pointer
-      transition-all
-      duration-300
-      hover:bg-[#5E9163]
-      hover:shadow-xl
-      hover:-translate-y-0.5
-      active:translate-y-0
-      active:scale-[0.98]
-    "
-  >
-    Connect
-  </button>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <a
+              href="mailto:contact@rougecodes.com?subject=Demo%20Request"
+              className="inline-flex items-center justify-center text-body-homepage font-medium h-12 px-10 rounded-full bg-[#6FA073] text-white shadow-md cursor-pointer transition-all duration-300 hover:bg-[#5E9163] hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+            >
+              Connect
+            </a>
 
-   <a
-  href="#features"
-  className="
-    inline-flex
-    items-center
-    justify-center
-    text-body-homepage
-    font-medium
-    h-12
-    px-10
-    rounded-full
-    border
-    border-[#6FA073]
-    text-[#6FA073]
-    bg-white
-    cursor-pointer
-    transition-all
-    duration-300
-    hover:bg-[#F3F4F5]
-    hover:shadow-lg
-    hover:-translate-y-0.5
-    active:translate-y-0
-    active:scale-[0.98]
-  "
->
-  Explore Features
-</a>
-</div>
+            <a
+              href="#features"
+              className="inline-flex items-center justify-center text-body-homepage font-medium h-12 px-10 rounded-full border border-[#6FA073] text-[#6FA073] bg-white cursor-pointer transition-all duration-300 hover:bg-[#F3F4F5] hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+            >
+              Explore Features
+            </a>
+          </div>
 
           {/* Dashboard Preview */}
           <div className="relative w-full max-w-262.5 mt-16">

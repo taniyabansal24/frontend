@@ -37,17 +37,7 @@ export default function AIAnalytics() {
 
           {/* Analytics Card */}
           <div
-            className="
-              mt-20
-              w-full
-              max-w-262.5
-              rounded-[36px]
-              border
-              border-[#E8E8E8]
-              bg-white
-              p-10
-              shadow-[0_10px_30px_rgba(0,0,0,0.05)]
-            "
+            className="mt-20 w-full max-w-262.5 rounded-[36px] border border-[#E8E8E8] bg-white p-10 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
           >
             <div className="grid lg:grid-cols-[290px_1fr] gap-8">
               {/* Left Card */}

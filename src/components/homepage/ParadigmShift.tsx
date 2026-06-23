@@ -14,7 +14,7 @@ export default function ParadigmShift() {
             <div className="flex flex-row items-center gap-2">
               <TargetIcon className="text-[#6FA073]" />
               <span className="text-badge-homepage text-[#6FA073]">
-               Next-Generation Management
+                Next-Generation Management
               </span>
             </div>
           </div>
@@ -25,9 +25,7 @@ export default function ParadigmShift() {
             <div>
               <h2 className="text-heading-homepage font-bold text-[#303042] max-w-137.5">
                 Move Beyond Traditional{" "}
-                <span className="text-[#F59E0B]">
-                  Institute Management.
-                </span>
+                <span className="text-[#F59E0B]">Institute Management.</span>
               </h2>
 
               <p className="text-body-homepage text-[#4B5563] mt-8 max-w-155 leading-9">
@@ -37,36 +35,12 @@ export default function ParadigmShift() {
               {/* Feature Cards */}
               <div className="mt-10 space-y-6">
                 {/* Card 1 */}
-                <div
-                  className="
-                    bg-white
-                    rounded-[20px]
-                    border
-                    border-[#E8ECE8]
-                    shadow-sm
-                    overflow-hidden
-                    flex
-                  "
-                >
+                <div className="bg-white rounded-[20px] border border-[#E8ECE8] shadow-sm overflow-hidden flex">
                   <div className="w-1.5 bg-[#6FA073]" />
 
                   <div className="p-6 flex gap-5">
-                    <div
-                      className="
-                        w-12
-                        h-12
-                        rounded-[12px]
-                        bg-[#EDF4EE]
-                        flex
-                        items-center
-                        justify-center
-                        shrink-0
-                      "
-                    >
-                      <ArrowUpRight
-                        size={22}
-                        className="text-[#6FA073]"
-                      />
+                    <div className="w-12 h-12 rounded-[12px] bg-[#EDF4EE] flex items-center justify-center shrink-0">
+                      <ArrowUpRight size={22} className="text-[#6FA073]" />
                     </div>
 
                     <div>
@@ -82,36 +56,12 @@ export default function ParadigmShift() {
                 </div>
 
                 {/* Card 2 */}
-                <div
-                  className="
-                    bg-white
-                    rounded-[20px]
-                    border
-                    border-[#E8ECE8]
-                    shadow-sm
-                    overflow-hidden
-                    flex
-                  "
-                >
+                <div className="bg-white rounded-[20px] border border-[#E8ECE8] shadow-sm overflow-hidden flex">
                   <div className="w-1.5 bg-[#F59E0B]" />
 
                   <div className="p-6 flex gap-5">
-                    <div
-                      className="
-                        w-12
-                        h-12
-                        rounded-[12px]
-                        bg-[#FFF4E7]
-                        flex
-                        items-center
-                        justify-center
-                        shrink-0
-                      "
-                    >
-                      <TrendingUp
-                        size={22}
-                        className="text-[#F59E0B]"
-                      />
+                    <div className="w-12 h-12 rounded-[12px] bg-[#FFF4E7] flex items-center justify-center shrink-0">
+                      <TrendingUp size={22} className="text-[#F59E0B]" />
                     </div>
 
                     <div>
@@ -131,37 +81,9 @@ export default function ParadigmShift() {
             {/* Right Side */}
             <div className="grid grid-cols-2 gap-6">
               {/* Traditional */}
-              <div
-                className="
-                  bg-white
-                  rounded-[32px]
-                  border
-                  border-[#E8ECE8]
-                  shadow-sm
-                  p-8
-                  min-h-80
-                  flex
-                  flex-col
-                  items-center
-                  justify-center
-                  text-center
-                "
-              >
-                <div
-                  className="
-                    w-16
-                    h-16
-                    rounded-full
-                    bg-[#FBECD8]
-                    flex
-                    items-center
-                    justify-center
-                  "
-                >
-                  <X
-                    size={26}
-                    className="text-[#D98A1E]"
-                  />
+              <div className="bg-white rounded-[32px] border border-[#E8ECE8] shadow-sm p-8 min-h-80 flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 rounded-full bg-[#FBECD8] flex items-center justify-center">
+                  <X size={26} className="text-[#D98A1E]" />
                 </div>
 
                 <h3 className="text-body-homepage font-semibold text-[#303042] mt-8">
@@ -174,37 +96,9 @@ export default function ParadigmShift() {
               </div>
 
               {/* Smart OS */}
-              <div
-                className="
-                  bg-white
-                  rounded-[32px]
-                  border
-                  border-[#E8ECE8]
-                  shadow-sm
-                  p-8
-                  min-h-80
-                  flex
-                  flex-col
-                  items-center
-                  justify-center
-                  text-center
-                "
-              >
-                <div
-                  className="
-                    w-16
-                    h-16
-                    rounded-full
-                    bg-[#EDF4EE]
-                    flex
-                    items-center
-                    justify-center
-                  "
-                >
-                  <CheckCircle2
-                    size={26}
-                    className="text-[#6FA073]"
-                  />
+              <div className="bg-white rounded-[32px] border border-[#E8ECE8] shadow-sm p-8 min-h-80 flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 rounded-full bg-[#EDF4EE] flex items-center justify-center">
+                  <CheckCircle2 size={26} className="text-[#6FA073]" />
                 </div>
 
                 <h3 className="text-body-homepage font-semibold text-[#6FA073] mt-8">

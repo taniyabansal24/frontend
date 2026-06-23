@@ -51,18 +51,18 @@ export default function Feature() {
             <div className="flex flex-row items-center gap-2">
               <TargetIcon className="text-[#6FA073]" />
               <span className="text-badge-homepage text-[#6FA073]">
-               Smart Learning Ecosystem
+                Smart Learning Ecosystem
               </span>
             </div>
           </div>
 
           {/* Heading */}
-          <h2 className="text-heading-homepage text-center max-w-175 font-bold">
+          <h2 className="text-heading-homepage text-center max-w-[700px] font-bold">
             Precision Engineered Learning
           </h2>
 
           {/* Description */}
-          <p className="text-body-homepage text-[#464652] font-light leading-7 text-center mt-6 max-w-125">
+          <p className="text-body-homepage text-[#464652] font-light leading-7 text-center mt-6 max-w-[500px]">
             Harness the power of neural networks to navigate your academic
             journey with laser focus.
           </p>
@@ -75,33 +75,14 @@ export default function Feature() {
               return (
                 <div
                   key={feature.title}
-                  className="
-                    bg-white
-                    border
-                    border-[#E5E7EB]
-                    rounded-[32px]
-                    p-10
-                    min-h-80
-                    shadow-[0_4px_16px_rgba(0,0,0,0.04)]
-                    transition-all
-                    duration-300
-                    hover:-translate-y-1
-                    hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)]
-                  "
+                  className="bg-white border border-[#E5E7EB] rounded-[32px] p-10 min-h-[320px] shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)]"
                 >
                   {/* Icon */}
                   <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center"
-                    style={{
-                      backgroundColor: feature.iconBg,
-                    }}
+                    style={{ backgroundColor: feature.iconBg }}
                   >
-                    <Icon
-                      size={30}
-                      style={{
-                        color: feature.iconColor,
-                      }}
-                    />
+                    <Icon size={30} style={{ color: feature.iconColor }} />
                   </div>
 
                   {/* Title */}

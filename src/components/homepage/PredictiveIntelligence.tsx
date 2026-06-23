@@ -1,7 +1,7 @@
 "use client";
 
 import Container from "@/components/ui/Container";
-import {ChartColumnIncreasing, BadgeAlert} from "lucide-react";
+import { ChartColumnIncreasing, BadgeAlert } from "lucide-react";
 import TargetIcon from "../icons/TargetIcon";
 
 export default function PredictiveIntelligence() {
@@ -14,23 +14,21 @@ export default function PredictiveIntelligence() {
             <div className="flex flex-row items-center gap-2">
               <TargetIcon className="text-[#6FA073]" />
               <span className="text-badge-homepage text-[#6FA073]">
-               Predictive Intelligence
+                Predictive Intelligence
               </span>
             </div>
           </div>
 
           {/* Content */}
-          <div className="mt-20 grid lg:grid-cols-2 gap-16 items-center w-full max-w-350">
+          <div className="mt-20 grid lg:grid-cols-2 gap-16 items-center w-full max-w-[1400px]">
             {/* Left Side */}
             <div>
-              <h2 className="text-heading-homepage font-bold text-[#303042] max-w-162.5">
+              <h2 className="text-heading-homepage font-bold text-[#303042] max-w-[650px]">
                 See the Future of your{" "}
-                <span className="text-[#8CB38F]">
-                  Institution.
-                </span>
+                <span className="text-[#8CB38F]">Institution.</span>
               </h2>
 
-              <p className="text-body-homepage text-[#4B5563] leading-9 mt-10 max-w-162.5">
+              <p className="text-body-homepage text-[#4B5563] leading-9 mt-10 max-w-[650px]">
                 Our proprietary AI engine analyses thousands of data points to
                 provide actionable forecasts. Understand student engagement
                 before it drops and optimize revenue with precision.
@@ -39,23 +37,8 @@ export default function PredictiveIntelligence() {
               {/* Features */}
               <div className="mt-14 space-y-8">
                 <div className="flex items-start gap-6">
-                  <div
-                    className="
-                      w-14
-                      h-14
-                      rounded-full
-                      border
-                      border-[#DCE8DE]
-                      flex
-                      items-center
-                      justify-center
-                      shrink-0
-                    "
-                  >
-                    <ChartColumnIncreasing
-                      size={24}
-                      className="text-[#8CB38F]"
-                    />
+                  <div className="w-14 h-14 rounded-full border border-[#DCE8DE] flex items-center justify-center shrink-0">
+                    <ChartColumnIncreasing size={24} className="text-[#8CB38F]" />
                   </div>
 
                   <div>
@@ -70,23 +53,8 @@ export default function PredictiveIntelligence() {
                 </div>
 
                 <div className="flex items-start gap-6">
-                  <div
-                    className="
-                      w-14
-                      h-14
-                      rounded-full
-                      border
-                      border-[#F4D2AC]
-                      flex
-                      items-center
-                      justify-center
-                      shrink-0
-                    "
-                  >
-                    <BadgeAlert
-                      size={24}
-                      className="text-[#F5A94B]"
-                    />
+                  <div className="w-14 h-14 rounded-full border border-[#F4D2AC] flex items-center justify-center shrink-0">
+                    <BadgeAlert size={24} className="text-[#F5A94B]" />
                   </div>
 
                   <div>
@@ -103,16 +71,7 @@ export default function PredictiveIntelligence() {
             </div>
 
             {/* Right Side Card */}
-            <div
-              className="
-                bg-white
-                border
-                border-[#E8ECE8]
-                rounded-[36px]
-                p-10
-                shadow-[0_10px_30px_rgba(0,0,0,0.06)]
-              "
-            >
+            <div className="bg-white border border-[#E8ECE8] rounded-[36px] p-10 shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
               {/* Header */}
               <div className="flex items-center justify-between">
                 <h3 className="text-body-homepage font-semibold text-[#6FA073]">

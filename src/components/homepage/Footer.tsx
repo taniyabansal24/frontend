@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-heading-homepage font-bold text-[#6FA073]">
-              EduManage
+              RougeClasses
             </h3>
 
             <p className="text-caption-homepage text-[#5F6368] leading-7 mt-4 max-w-[320px]">
@@ -191,7 +191,7 @@ export default function Footer() {
                 href="mailto:contact@rougecodes.com?subject=Demo%20Request"
                 className="inline-flex items-center justify-center mt-2 h-10 px-5 rounded-full bg-[#6FA073] text-white text-caption-homepage hover:bg-[#5F8E63] transition-colors"
               >
-                Book a Demo
+                Get Started
               </a>
             </div>
           </div>

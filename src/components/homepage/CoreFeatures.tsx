@@ -8,7 +8,6 @@ import {
   Wallet,
   CheckCircle2,
 } from "lucide-react";
-
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import TargetIcon from "@/components/icons/TargetIcon";
@@ -93,35 +92,12 @@ function FeatureCard({
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="
-          bg-white
-          rounded-[32px]
-          border
-          border-[#C7D9C8]
-          overflow-hidden
-          shadow-[0_10px_40px_rgba(0,0,0,0.08)]
-          w-full
-          max-w-5xl
-          mx-auto
-        "
+        className="bg-white rounded-[32px] border border-[#C7D9C8] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.08)] w-full max-w-5xl mx-auto"
       >
         <div className="px-6 md:px-10 lg:px-16 py-8 md:py-10">
           {/* Header */}
           <div className="flex items-center gap-4 md:gap-6">
-            <div
-              className="
-                h-16
-                w-16
-                md:h-18
-                md:w-18
-                rounded-[18px]
-                bg-[#6FA073]
-                flex
-                items-center
-                justify-center
-                shrink-0
-              "
-            >
+            <div className="h-16 w-16 md:h-18 md:w-18 rounded-[18px] bg-[#6FA073] flex items-center justify-center shrink-0">
               <Icon size={32} className="text-white" strokeWidth={1.75} />
             </div>
 
@@ -129,7 +105,6 @@ function FeatureCard({
               <h3 className="text-xl md:text-[24px] font-semibold text-[#303042]">
                 {feature.title}
               </h3>
-
               <p className="text-[#9A9AA3] mt-1">{feature.tag}</p>
             </div>
           </div>
@@ -147,7 +122,6 @@ function FeatureCard({
                   <div className="w-7 h-7 rounded-full bg-[#F3F3F3] flex items-center justify-center">
                     <CheckCircle2 size={14} className="text-[#6FA073]" />
                   </div>
-
                   <span className="text-[#3D4156]">{point}</span>
                 </div>
               ))}
@@ -157,10 +131,7 @@ function FeatureCard({
               <div className="text-heading-homepage font-semibold leading-none text-[#303042]">
                 {feature.stat}
               </div>
-
-              <p className="text-[#6B7280] mt-2 font-medium">
-                {feature.statLabel}
-              </p>
+              <p className="text-[#6B7280] mt-2 font-medium">{feature.statLabel}</p>
             </div>
           </div>
         </div>
