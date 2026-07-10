@@ -22,6 +22,20 @@ export default function RowActions<T extends { id: string }>({
 
   const [showDelete, setShowDelete] = useState(false);
 
+  const showOnlyView = !!onView && !onEdit && !onDelete;
+
+  if (showOnlyView) {
+    return (
+      <button
+        onClick={() => onView(row.id)}
+        className="h-10 w-10 rounded-xl flex items-center justify-center hover:bg-[#F9FAFB]"
+        title="View"
+      >
+        <Eye size={18} className="text-[#344054]" />
+      </button>
+    );
+  }
+
   return (
     <>
       <div className="dropdown dropdown-end">
@@ -48,7 +62,7 @@ export default function RowActions<T extends { id: string }>({
               </button>
             </li>
           )}
-          
+
           <li>
             <button
               onClick={() => {

@@ -118,6 +118,7 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -129,6 +130,24 @@
     @apply font-sans;
     scroll-behavior: smooth;
   }
+}
+/* Calendar icon */
+
+.date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 1;
+  filter: invert(30%) sepia(8%) saturate(1200%) hue-rotate(75deg)
+    brightness(75%) contrast(90%);
+}
+
+/* Dark icon on hover */
+.date-input:hover::-webkit-calendar-picker-indicator {
+  filter: invert(15%);
+}
+
+/* Firefox */
+.date-input {
+  color-scheme: light;
 }
 
 /* Typography System */

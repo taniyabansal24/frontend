@@ -14,6 +14,7 @@ import {
 import { managementStaffForm } from "../config/management-staff-form";
 
 import { useCreateManagementStaffMutation } from "../api/mutations";
+import Button from "@/components/shared/Button";
 
 export default function CreateManagementStaffForm() {
   const { mutate, isPending } = useCreateManagementStaffMutation();
@@ -46,20 +47,17 @@ export default function CreateManagementStaffForm() {
       />
 
       <div className="flex justify-end gap-4 mt-8">
-        <button
+        <Button
           type="button"
-          className="h-11 px-6 border rounded-xl card-title text-[#344054]"
+          variant="secondary"
+          onClick={() => methods.reset()}
         >
           Cancel
-        </button>
+        </Button>
 
-        <button
-          type="submit"
-          disabled={isPending}
-          className="h-11 px-6 bg-[#6FA073] text-white card-title rounded-xl disabled:opacity-70"
-        >
-          {isPending ? "Saving..." : "Save Staff"}
-        </button>
+        <Button type="submit" disabled={isPending}>
+          {isPending ? "Saving..." : "Save Management Staff"}
+        </Button>
       </div>
     </form>
   );

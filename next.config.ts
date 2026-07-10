@@ -1,7 +1,20 @@
+// next.config.ts
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    // This "if" statement goes right here, inside the rewrites() function!
+    if (process.env.NODE_ENV === "development") {
+      return [
+        {
+          source: "/api/:path*",
+          destination: "https://api.rougecodes.com/api/:path*",
+        },
+      ];
+    }
+
+    return [];
+  },
 };
 
 export default nextConfig;

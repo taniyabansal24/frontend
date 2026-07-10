@@ -14,17 +14,20 @@ export default function FormField({
   const error = form.formState.errors?.[name]?.message;
 
   const baseInputClasses = `
-    w-full
-    px-3
-    rounded-md
-    border
-    border-[#EAECF0]
-    body-text
-    outline-none
-    bg-white
-    focus:border-[#6FA073]
-    transition-all
-  `;
+  w-full
+  h-12
+  px-4
+  rounded-md
+  border
+  border-[#D0D5DD]
+  bg-white
+  body-text
+  outline-none
+  transition-all
+  focus:border-[#6FA073]
+  focus:ring-2
+  focus:ring-[#6FA073]/20
+`;
 
   const renderField = () => {
     switch (type) {
@@ -69,7 +72,9 @@ export default function FormField({
             type={type}
             placeholder={placeholder}
             {...form.register(name)}
-            className={`h-10.5 ${baseInputClasses}`}
+            className={`${baseInputClasses} ${
+              type === "date" ? "date-input" : ""
+            }`}
           />
         );
     }

@@ -19,7 +19,6 @@ import {
   Settings,
 } from "lucide-react";
 
-
 export const sidebarItems = [
   {
     title: "Dashboard",
@@ -36,7 +35,7 @@ export const sidebarItems = [
       {
         title: "Activity Feed",
         path: "/dashboard/activity-feed",
-      }
+      },
     ],
   },
 
@@ -51,7 +50,7 @@ export const sidebarItems = [
       {
         title: "Create Student",
         path: "/dashboard/students/create",
-      }
+      },
     ],
   },
   {
@@ -65,7 +64,7 @@ export const sidebarItems = [
       {
         title: "Create Parent",
         path: "/dashboard/parents/create",
-      }
+      },
     ],
   },
 
@@ -96,29 +95,53 @@ export const sidebarItems = [
         title: "All Management Staff",
         path: "/dashboard/management-staff/all",
       },
-      {
-        title: "Roles & Permissions",
-        path: "/dashboard/management-staff/roles",
-      },
-      {
-        title: "Staff Attendance",
-        path: "/dashboard/management-staff/attendance",
-      }
+      // {
+      //   title: "Roles & Permissions",
+      //   path: "/dashboard/management-staff/roles",
+      // },
+      // {
+      //   title: "Staff Attendance",
+      //   path: "/dashboard/management-staff/attendance",
+      // }
     ],
   },
 
   {
-    title: "Batches",
+    title: "Academics",
     icon: BookOpen,
     children: [
       {
-        title: "All Batches",
-        path: "/dashboard/batches/all",
+        title: "Create Batch",
+        path: "/dashboard/academics/batches/create",
       },
       {
-        title: "Create Batch",
-        path: "/dashboard/batches/create",
-      }
+        title: "All Batches",
+        path: "/dashboard/academics/batches/all",
+      },
+      {
+        title: "Create Subjects",
+        path: "/dashboard/academics/subjects/create",
+      },
+      {
+        title: "All Subjects",
+        path: "/dashboard/academics/subjects/all",
+      },
+      {
+        title: "Create Topics",
+        path: "/dashboard/academics/topics/create",
+      },
+      {
+        title: "All Topics",
+        path: "/dashboard/academics/topics/all",
+      },
+      {
+        title: "Create Lectures",
+        path: "/dashboard/academics/lectures/create",
+      },
+      {
+        title: "All Lectures",
+        path: "/dashboard/academics/lectures/all",
+      },
     ],
   },
 
@@ -137,7 +160,7 @@ export const sidebarItems = [
       {
         title: "Manage Rescheduling",
         path: "/dashboard/class-scheduling/manage-rescheduling",
-      }
+      },
     ],
   },
 
@@ -156,7 +179,7 @@ export const sidebarItems = [
       {
         title: "Generate Attendance Reports",
         path: "/dashboard/attendance/reports",
-      }
+      },
     ],
   },
 
@@ -175,7 +198,7 @@ export const sidebarItems = [
       {
         title: "View Payment Records",
         path: "/dashboard/fees-payments/view-payment-records",
-      }
+      },
     ],
   },
 
@@ -183,18 +206,42 @@ export const sidebarItems = [
     title: "Tests & Exams",
     icon: FileText,
     children: [
+      // {
+      //   title: "All Tests",
+      //   path: "/dashboard/tests",
+      // },
       {
-        title: "Create Test/Exam",
-        path: "/dashboard/tests-exams/create",
+        title: "Create Question Banks",
+        path: "/dashboard/tests/question-banks/create",
       },
       {
-        title: "View Test/Exam Records",
-        path: "/dashboard/tests-exams/records",
+        title: "Add Question",
+        path: "/dashboard/tests/questions",
       },
       {
-        title: "Generate Report Cards",
-        path: "/dashboard/tests-exams/report-cards",
-      }
+        title: "All Question Banks",
+        path: "/dashboard/tests/question-banks/all",
+      },
+      {
+        title: "Assign Test",
+        path: "/dashboard/tests/assign-test",
+      },
+      // {
+      //   title: "Assign Test",
+      //   path: "/dashboard/tests/assignments",
+      // },
+      // {
+      //   title: "Results",
+      //   path: "/dashboard/tests/results",
+      // },
+      // {
+      //   title: "Rankings",
+      //   path: "/dashboard/tests/rankings",
+      // },
+      // {
+      //   title: "Performance Analytics",
+      //   path: "/dashboard/tests/analytics",
+      // },
     ],
   },
 
@@ -213,7 +260,7 @@ export const sidebarItems = [
       {
         title: "Manage Materials",
         path: "/dashboard/study-materials/manage",
-      }
+      },
     ],
   },
 
@@ -222,8 +269,8 @@ export const sidebarItems = [
     icon: MessageSquare,
     children: [
       {
-        title: "Send Announcement",
-        path: "/dashboard/communication/send-announcement",
+        title: "Announcement",
+        path: "/dashboard/communication/announcement",
       },
       {
         title: "View Messages",
@@ -232,7 +279,7 @@ export const sidebarItems = [
       {
         title: "Manage Notifications",
         path: "/dashboard/communication/manage-notifications",
-      }
+      },
     ],
   },
 
@@ -247,7 +294,7 @@ export const sidebarItems = [
       {
         title: "Generate Analytics",
         path: "/dashboard/reports/generate-analytics",
-      }
+      },
     ],
   },
 
@@ -262,7 +309,7 @@ export const sidebarItems = [
       {
         title: "AI-Driven Student Support",
         path: "/dashboard/ai-tools/student-support",
-      }
+      },
     ],
   },
 

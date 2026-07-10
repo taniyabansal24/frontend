@@ -16,17 +16,17 @@ export default function NotFound() {
           The page you are looking for could not be found.
         </p>
 
-        <div className="flex gap-3 justify-center">
+        <div className="flex justify-center gap-3">
           <Link
             href={ROUTES.dashboard}
-            className="px-6 py-3 bg-[#6FA073] text-white rounded-xl card-title hover:bg-[#5d8a61] transition-all duration-200"
+            className="inline-flex items-center justify-center h-11 px-6 rounded-xl card-title bg-[#6FA073] text-white transition-all duration-200 hover:bg-[#5f8d63] active:scale-95 active:bg-[#567f5a] focus:outline-none focus:ring-2 focus:ring-[#6FA073]/40"
           >
             Go to Dashboard
           </Link>
 
           <Link
             href={ROUTES.home}
-            className="px-6 py-3 border border-[#EAECF0] text-[#344054] rounded-xl card-title hover:bg-gray-50 transition-all duration-200"
+            className="inline-flex items-center justify-center h-11 px-6 rounded-xl card-title border border-gray-300 bg-white text-[#344054] transition-all duration-200 hover:bg-gray-100 hover:border-gray-400 active:scale-95"
           >
             Go Home
           </Link>

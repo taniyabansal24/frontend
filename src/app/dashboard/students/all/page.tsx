@@ -7,7 +7,7 @@ export default function AllStudentsPage() {
     <div className="p-4 md:p-6">
       <h1 className="heading">All Students</h1>
 
-      <p className="body-text mt-1 mb-6 md:mb-8">
+      <p className="body-text mt-1 mb-8 text-[#667085]">
         Manage student records and their academic progress
       </p>
 

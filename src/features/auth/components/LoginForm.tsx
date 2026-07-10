@@ -109,7 +109,6 @@ export function LoginForm() {
           type="submit"
           disabled={isPending}
           className="inline-flex items-center justify-center text-body-homepage font-medium h-12 w-full px-10 rounded-md bg-[#6FA073] text-white shadow-md cursor-pointer transition-all duration-300 hover:bg-[#5E9163] hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-          
         >
           {isPending ? "Signing In..." : "Login"}
         </button>

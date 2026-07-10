@@ -1,50 +1,44 @@
-// src/features/parents/config/parent-columns.ts 
+// src/features/parents/config/parent-columns.ts
 
 export const parentColumns = [
   {
     key: "name",
     title: "Parent",
-    width: "180px",
+    width: "minmax(120px, 1.2fr)",
   },
-
   {
     key: "email",
     title: "Email",
-    width: "250px",
+    width: "minmax(180px, 2.3fr)", // Ensures email is readable
   },
-
   {
     key: "phone",
     title: "Phone",
-    width: "180px",
+    width: "minmax(100px, 1fr)",
   },
-
   {
     key: "relationship",
-    title: "Relationship",
-    width: "160px",
+    title: "Relation",
+    width: "minmax(80px, 0.6fr)",
   },
-  
-
   {
     key: "studentEnrollmentNumber",
-    title: "Student ID",
-    width: "180px",
+    title: "Stu. ID",
+    width: "minmax(120px, 1fr)",
   },
   {
     key: "studentName",
-    title: "Student",
-    width: "150px",
+    title: "Stu.",
+    width: "minmax(60px, 0.6fr)",
   },
   {
     key: "studentClass",
     title: "Class",
-    width: "120px",
+    width: "minmax(50px, 0.6fr)",
   },
-
   {
     key: "actions",
     title: "Actions",
-    width: "50px",
+    width: "minmax(60px, 0.6fr)",
   },
 ];

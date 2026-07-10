@@ -22,6 +22,7 @@ import { createParentForm } from "../config/create-parent-form";
 import { useCreateParentMutation } from "../api/mutations";
 
 import StudentSelectField from "./StudentSelectField";
+import Button from "@/components/shared/Button";
 
 export default function CreateParentForm() {
   const { mutateAsync: createParent, isPending } = useCreateParentMutation();
@@ -80,21 +81,18 @@ export default function CreateParentForm() {
         />
       </div>
 
-      <div className="flex justify-end mt-8">
-        <button
+      <div className="flex justify-end gap-4 mt-8">
+        <Button
           type="button"
-          className="h-11 px-6 border rounded-xl card-title text-[#344054]"
+          variant="secondary"
+          onClick={() => methods.reset()}
         >
           Cancel
-        </button>
-        
-        <button
-          type="submit"
-          disabled={isPending}
-          className="h-11 px-6 bg-[#6FA073] text-white card-title rounded-xl disabled:opacity-70"
-        >
+        </Button>
+
+        <Button type="submit" disabled={isPending}>
           {isPending ? "Saving..." : "Save Parent"}
-        </button>
+        </Button>
       </div>
     </form>
   );

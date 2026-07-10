@@ -17,9 +17,7 @@ export default function DataTable<T extends { id: string }>({
   onView,
 }: DataTableProps<T>) {
   const [currentPage, setCurrentPage] = useState(1);
-
   const [isMobile, setIsMobile] = useState(false);
-
   const [mobileView, setMobileView] = useState<"table" | "cards">("table");
 
   useEffect(() => {
@@ -28,23 +26,61 @@ export default function DataTable<T extends { id: string }>({
     };
 
     checkMobile();
-
     window.addEventListener("resize", checkMobile);
-
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const totalPages = Math.ceil(data.length / rowsPerPage);
-
   const startIndex = (currentPage - 1) * rowsPerPage;
-
   const endIndex = startIndex + rowsPerPage;
-
   const currentData = data.slice(startIndex, endIndex);
 
   const gridColumns = columns
-    .map((column) => column.width || "minmax(150px,1fr)")
+    .map((column) => column.width || "minmax(140px,1fr)")
     .join(" ");
+
+  // Helper to render cell content
+  const renderCellContent = (row: T, column: any) => {
+    if (column.key === "actions") {
+      return (
+        <div className="flex justify-center w-full">
+          <RowActions
+            row={row}
+            editFields={editFields}
+            customEdit={customEdit}
+            onEdit={onEdit}
+            onDelete={onDelete}
+            onView={onView}
+          />
+        </div>
+      );
+    }
+
+    const value = row[column.key as keyof T];
+
+    if (value === null || value === undefined) {
+      return "-";
+    }
+
+    // Check if it's a URL
+    const stringValue = String(value);
+    const isUrl = stringValue.startsWith("http://") || stringValue.startsWith("https://");
+
+    if (isUrl) {
+      return (
+        <a
+          href={stringValue}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800 underline break-all"
+        >
+          {stringValue}
+        </a>
+      );
+    }
+
+    return stringValue;
+  };
 
   return (
     <div className="bg-white rounded-[20px] border border-[#EAECF0] overflow-visible">
@@ -61,7 +97,6 @@ export default function DataTable<T extends { id: string }>({
           >
             Table View
           </button>
-
           <button
             onClick={() => setMobileView("cards")}
             className={`flex-1 py-2 card-title rounded-lg transition-all ${
@@ -86,26 +121,13 @@ export default function DataTable<T extends { id: string }>({
               {columns.map((column) => (
                 <div key={column.key} className="mb-3 last:mb-0">
                   <div className="caption mb-1">{column.title}</div>
-
-                  <div className="body-text wrap-break-words">
-                    {column.key === "actions" ? (
-                      <RowActions
-                        row={row}
-                        editFields={editFields}
-                        customEdit={customEdit}
-                        onEdit={onEdit}
-                        onDelete={onDelete}
-                        onView={onView}
-                      />
-                    ) : (
-                      String(row[column.key as keyof T] ?? "-")
-                    )}
+                  <div className="body-text break-words">
+                    {renderCellContent(row, column)}
                   </div>
                 </div>
               ))}
             </div>
           ))}
-
           {currentData.length === 0 && (
             <div className="py-12 text-center">
               <p className="body-text">No data available</p>
@@ -115,10 +137,10 @@ export default function DataTable<T extends { id: string }>({
       ) : (
         /* Desktop Table View */
         <div className="overflow-x-auto overflow-y-visible w-full">
-          <div className="min-w-150 md:min-w-full">
+          <div className="w-full">
             {/* Header */}
             <div
-              className="bg-[#F9FAFB] border-b border-[#EAECF0] h-14 px-8 grid items-center min-w-max"
+              className="bg-[#F9FAFB] border-b border-[#EAECF0] min-h-[56px] px-6 grid items-center rounded-t-2xl gap-x-8"
               style={{
                 gridTemplateColumns: gridColumns,
               }}
@@ -126,7 +148,9 @@ export default function DataTable<T extends { id: string }>({
               {columns.map((column) => (
                 <div
                   key={column.key}
-                  className="card-title uppercase tracking-[1px] flex items-center"
+                  className={`card-title uppercase tracking-[1px] ${
+                    column.key === "actions" ? "text-center" : ""
+                  }`}
                 >
                   {column.title}
                 </div>
@@ -137,27 +161,21 @@ export default function DataTable<T extends { id: string }>({
             {currentData.map((row, index) => (
               <div
                 key={index}
-                className="relative h-18 px-8 border-b border-[#EAECF0] grid items-center hover:bg-[#FCFCFD] transition-all min-w-max"
+                className="relative min-h-[72px] py-4 px-6 border-b border-[#EAECF0] grid items-start gap-x-8 hover:bg-[#FCFCFD] transition-all"
                 style={{
                   gridTemplateColumns: gridColumns,
                 }}
               >
                 {columns.map((column) => (
-                  <div key={column.key} className="body-text flex items-center">
-                    {column.key === "actions" ? (
-                      <div className="flex justify-center w-full">
-                        <RowActions
-                          row={row}
-                          editFields={editFields}
-                          customEdit={customEdit}
-                          onEdit={onEdit}
-                          onDelete={onDelete}
-                          onView={onView}
-                        />
-                      </div>
-                    ) : (
-                      String(row[column.key as keyof T] ?? "-")
-                    )}
+                  <div
+                    key={column.key}
+                    className={`body-text break-words whitespace-normal leading-7 ${
+                      column.key === "actions"
+                        ? "flex items-center justify-center"
+                        : "flex items-start"
+                    }`}
+                  >
+                    {renderCellContent(row, column)}
                   </div>
                 ))}
               </div>
@@ -179,7 +197,6 @@ export default function DataTable<T extends { id: string }>({
           Showing {data.length > 0 ? startIndex + 1 : 0} to{" "}
           {Math.min(endIndex, data.length)} of {data.length} results
         </p>
-
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

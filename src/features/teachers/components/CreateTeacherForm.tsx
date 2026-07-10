@@ -2,6 +2,7 @@
 "use client";
 
 import { useForm, type FieldValues, type UseFormReturn } from "react-hook-form";
+import Button from "@/components/shared/Button";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -53,20 +54,17 @@ export default function CreateTeacherForm() {
       />
 
       <div className="flex justify-end gap-4 mt-8">
-        <button
+        <Button
           type="button"
-          className="h-11 px-6 border rounded-xl card-title text-[#344054]"
+          variant="secondary"
+          onClick={() => methods.reset()}
         >
           Cancel
-        </button>
+        </Button>
 
-        <button
-          type="submit"
-          disabled={isPending}
-          className="h-11 px-6 bg-[#6FA073] text-white card-title rounded-xl disabled:opacity-70"
-        >
+        <Button type="submit" disabled={isPending}>
           {isPending ? "Saving..." : "Save Teacher"}
-        </button>
+        </Button>
       </div>
     </form>
   );

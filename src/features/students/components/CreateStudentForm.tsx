@@ -12,7 +12,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import DynamicForm from "@/components/shared/forms/DynamicForm";
-import MultiSelectField from "@/features/batches/components/MultiSelectField";
+import MultiSelectField from "@/components/shared/forms/MultiSelectField";
 
 import StudentParentSection from "@/features/parents/components/StudentParentSection";
 
@@ -26,7 +26,8 @@ import { useCreateParentMutation } from "@/features/parents/api/mutations";
 
 import { studentForm } from "../config/student-form";
 
-import { useBatchesQuery } from "@/features/batches/api/queries";
+import { useBatchesQuery } from "@/features/academics/batches/api/queries";
+import Button from "@/components/shared/Button";
 
 export default function CreateStudentForm() {
   const { mutateAsync: createStudent, isPending } = useCreateStudentMutation();
@@ -154,6 +155,8 @@ export default function CreateStudentForm() {
               options={batchOptions}
               value={field.value ?? []}
               onChange={field.onChange}
+              searchPlaceholder="Search batches..."
+              emptyMessage="No batches found"
             />
           )}
         />
@@ -164,17 +167,17 @@ export default function CreateStudentForm() {
       />
 
       <div className="flex justify-end gap-4 mt-8">
-        <button type="button" className="h-11 px-6 border rounded-xl card-title text-[#344054]">
-          Cancel
-        </button>
-
-        <button
-          type="submit"
-          disabled={isPending}
-          className="h-11 px-6 bg-[#6FA073] text-white card-title rounded-xl disabled:opacity-70"
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={() => methods.reset()}
         >
+          Cancel
+        </Button>
+
+        <Button type="submit" disabled={isPending}>
           {isPending ? "Saving..." : "Save Student"}
-        </button>
+        </Button>
       </div>
     </form>
   );

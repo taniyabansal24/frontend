@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/shared/Button";
 // src/app/error.tsx
 // Global error boundary — catches runtime errors in the React tree
 
@@ -41,12 +42,11 @@ export default function GlobalError({ error, reset }: ErrorPageProps) {
           An unexpected error occurred. Our team has been notified.
         </p>
 
-        <button
-          onClick={reset}
-          className="px-6 py-3 bg-[#6FA073] text-white rounded-xl card-title hover:bg-[#5d8a61] transition-all duration-200"
-        >
-          Try again
-        </button>
+        <div className="flex justify-center mt-2">
+          <Button onClick={reset} className="min-w-[180px]">
+            Try again
+          </Button>
+        </div>
       </div>
     </div>
   );

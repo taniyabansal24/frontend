@@ -4,7 +4,7 @@
 
 import { useState } from "react";
 
-import MultiSelectField from "@/features/batches/components/MultiSelectField";
+import MultiSelectField from "@/components/shared/forms/MultiSelectField";
 
 interface Option {
   id: string;

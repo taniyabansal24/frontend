@@ -12,7 +12,7 @@ import EditStudentDialog from "./EditStudentDialog";
 import { useStudentsQuery } from "../api/queries";
 import { useParentsQuery } from "@/features/parents/api/queries";
 
-import { useBatchesQuery } from "@/features/batches/api/queries";
+import { useBatchesQuery } from "@/features/academics/batches/api/queries";
 
 import {
   useUpdateStudentMutation,

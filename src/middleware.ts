@@ -12,7 +12,7 @@ const AUTH_ONLY_ROUTES = [
 ];
 
 export function middleware(request: NextRequest) {
-  const token = request.cookies.get("token")?.value;
+  const token = request.cookies.get("accessToken")?.value;
   const { pathname } = request.nextUrl;
 
   const isProtected = PROTECTED_ROUTES.some((route) =>
