@@ -94,28 +94,19 @@ export default function CreateTopicForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
         {/* Batch */}
 
-        <Controller
-          control={methods.control}
-          name="batchId"
-          as
-          never
-          render={() => (
-            <MultiSelectField
-              label="Batch"
-              options={batchOptions}
-              value={selectedBatchIds}
-              searchPlaceholder="Search batches..."
-              emptyMessage="No batches found"
-              onChange={(value) => {
-                const selected =
-                  value.length > 0 ? [value[value.length - 1]] : [];
+        <MultiSelectField
+          label="Batch"
+          options={batchOptions}
+          value={selectedBatchIds}
+          searchPlaceholder="Search batches..."
+          emptyMessage="No batches found"
+          onChange={(value) => {
+            const selected = value.length > 0 ? [value[value.length - 1]] : [];
 
-                setSelectedBatchIds(selected);
+            setSelectedBatchIds(selected);
 
-                methods.setValue("subjectId", "");
-              }}
-            />
-          )}
+            methods.setValue("subjectId", "");
+          }}
         />
 
         {/* Subject */}
