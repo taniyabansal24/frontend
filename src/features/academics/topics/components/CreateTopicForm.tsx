@@ -1,4 +1,4 @@
-// src/features/topics/components/CreateTopicForm.tsx
+// src/features/academics/topics/components/CreateTopicForm.tsx
 
 "use client";
 

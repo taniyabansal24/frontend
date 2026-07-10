@@ -53,7 +53,7 @@ export default function AssignmentSummary({
   );
 
   const totalQuestions = selectedQuestionBanks.reduce(
-    (total, bank) => total + (bank.questionCount ?? 0),
+    (total, bank) => total + (bank.totalQuestions ?? 0),
     0,
   );
 
@@ -163,7 +163,7 @@ export default function AssignmentSummary({
               >
                 <span className="text-[14px] text-[#344054]">{bank.name}</span>
                 <span className="text-[12px] rounded-full bg-[#F2F4F7] px-2 py-1 text-[#344054]">
-                  {bank.questionCount ?? 0} Qs
+                  {bank.totalQuestions ?? 0} Qs
                 </span>
               </div>
             ))}

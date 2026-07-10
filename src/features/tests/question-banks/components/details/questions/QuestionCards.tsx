@@ -20,9 +20,7 @@ export default function QuestionCards({
   if (questions.length === 0) {
     return (
       <div className="rounded-2xl border border-dashed border-[#D0D5DD] py-12 text-center">
-        <p className="body-text text-[#667085]">
-          No questions found.
-        </p>
+        <p className="body-text text-[#667085]">No questions found.</p>
       </div>
     );
   }
@@ -30,12 +28,12 @@ export default function QuestionCards({
   return (
     <div className="space-y-4">
       {questions.map((question, index) => (
-          <QuestionCard
-            key={question.id}
-            index={index}
-            question={question}
-            isEditing={isEditing}
-            setQuestions={setQuestions}
+        <QuestionCard
+          key={question.id}
+          question={question}
+          index={index}
+          isEditing={isEditing}
+          setQuestions={setQuestions}
         />
       ))}
     </div>
